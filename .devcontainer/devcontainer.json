@@ -1,0 +1,9 @@
+{
+  "container": "node:12",
+  "postCreateCommand": "npm install",
+  "extensions": [
+    "orta.vscode-jest",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode"
+  ]
+}
