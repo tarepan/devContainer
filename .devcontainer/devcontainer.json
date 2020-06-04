@@ -1,13 +1,21 @@
 {
   "name": "testdevcontainer",
   "dockerFile": "Dockerfile",
-
+  "mounts": [
+    "source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind",
+    "source=${localEnv:HOME}${localEnv:USERPROFILE}/envar.env,target=/var/envar.env,type=bind",
+  ],
+  "runArgs": [
+    "--env-file",
+    "${localEnv:HOME}${localEnv:USERPROFILE}/envar.env"
+  ],
   "settings": {
     "terminal.integrated.shell.linux": "/bin/bash"
   },
-
-  "extensions": ["dbaeumer.vscode-eslint"],
-
-  "postCreateCommand": "yarn install",
-  "remoteUser": "node"
+  "extensions": [
+    "ms-azuretools.vscode-docker",
+    "dbaeumer.vscode-eslint"
+  ],
+  "postCreateCommand": "npm install",
+  // "remoteUser": "node"
 }

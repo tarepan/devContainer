@@ -1,3 +1,3 @@
 import { pipe } from "fp-ts/lib/pipeable";
 
-pipe("hello from devContainer", console.log);
+setInterval(() => pipe(`hello from devContainer with ${process.env.pandaenv}`, console.log), 1000)
